@@ -1,5 +1,6 @@
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faPen } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
@@ -53,7 +54,7 @@ const handleSubmit = () => {
               <td>j.e.rice4101@gmail.com</td>
               <td>717-271-4458</td>
               <td>
-                <FontAwesomeIcon icon="fa-solid fa-pen-to-square" />
+                <FontAwesomeIcon icon="fa-solid faPen-to-square" />
                 <button>Delete</button>
               </td>
             </tr>
