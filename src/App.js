@@ -1,4 +1,6 @@
 import './App.css';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { byPrefixAndName } from '@awesome.me/kit-KIT_CODE/icons'
 
 function App() {
 
