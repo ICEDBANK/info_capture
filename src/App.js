@@ -1,6 +1,6 @@
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faPenToSquare } from '@fortawesome/free-solid-svg-icons';
+import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
 
 function App() {
 
@@ -55,7 +55,7 @@ const handleSubmit = () => {
               <td>717-271-4458</td>
               <td>
               <FontAwesomeIcon icon={faPenToSquare} />
-                <button>Delete</button>
+              <FontAwesomeIcon icon={faTrash} />
               </td>
             </tr>
           </tbody>
