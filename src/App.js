@@ -14,6 +14,7 @@ function App() {
     if (isEditing) {
 
       alert("Your Are About To Edit Something");
+      setIsEditing(false);
 
     }else{
 
@@ -30,7 +31,7 @@ function App() {
     if (isEditing) {
 
       alert("Your Are About To Edit Something");
-      setIsEditing
+      setIsEditing(true);
 
     }else{
 
@@ -72,8 +73,7 @@ function App() {
             <input type="text" name='state' placeholder='Enter Your State' required />
             <input type="text" name='email' placeholder='someone@somewhere.com' required />
             <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='example: 123-456-7890' required />
-            <button className='addBtn'>Add Record</button>
-            <button className='updateBtn'>Update Record</button>
+            {isEditing ? ( <button className='updateBtn'>Update Record</button> ):( <button className='addBtn'>Add Record</button> )}
           </form>
         </div>
         <div className="table-container">
