@@ -1,14 +1,59 @@
 import './App.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPenToSquare, faTrash } from '@fortawesome/free-solid-svg-icons';
+import { useEffect, useState } from 'react';
 
 function App() {
 
-const handleSubmit = () => {
+  const [isEditing, setIsEditing] = useState(false);
 
-  console.log('Form Submitted');
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log('Form Submitted');
 
-};
+    if (isEditing) {
+
+      alert("Your Are About To Edit Something");
+
+    }else{
+
+      alert("Record Added");
+
+    }
+
+  };
+
+  const handleEdit = (e) => {
+    e.preventDefault();
+    console.log('Form Submitted');
+
+    if (isEditing) {
+
+      alert("Your Are About To Edit Something");
+
+    }else{
+
+      alert("Record Added");
+
+    }
+
+  };
+
+  const handleDelete = (e) => {
+    e.preventDefault();
+    console.log('Form Submitted');
+
+    if (isEditing) {
+
+      alert("Your Are About To Edit Something");
+
+    }else{
+
+      alert("Record Added");
+
+    }
+
+  };
 
   return (
     <>
@@ -55,8 +100,8 @@ const handleSubmit = () => {
               <td>j.e.rice4101@gmail.com</td>
               <td>717-271-4458</td>
               <td>
-              <FontAwesomeIcon icon={faPenToSquare} className='editBtn myBtn'/>
-              <FontAwesomeIcon icon={faTrash} className='delBtn myBtn'/>
+              <FontAwesomeIcon icon={faPenToSquare} className='editBtn myBtn' onClick={() => handleEdit(record)}/>
+              <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete(record.id)}/>
               </td>
             </tr>
           </tbody>
