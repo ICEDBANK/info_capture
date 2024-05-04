@@ -30,6 +30,7 @@ function App() {
     if (isEditing) {
 
       alert("Your Are About To Edit Something");
+      setIsEditing
 
     }else{
 
