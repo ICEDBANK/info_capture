@@ -21,7 +21,7 @@ const handleSubmit = () => {
             <input type="text" name='lastname' placeholder='Enter Your Last Name' />
             <input type="number" name='age' placeholder='Enter Your Age' />
             <input type="text" name='email' placeholder='someone@somewhere.com' />
-            <input type="tel" name='phone' placeholder='Enter Your Phone Number' />
+            <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='example: 123-456-7890' />
           </form>
         </div>
       </div>
