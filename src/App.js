@@ -39,6 +39,7 @@ const handleSubmit = () => {
               <th>State</th>
               <th>Email</th>
               <th>Phone</th>
+              <th>Actions</th>
             </tr>
           </thead>
           <tbody>
@@ -50,6 +51,10 @@ const handleSubmit = () => {
               <td>Pennsylvania</td>
               <td>j.e.rice4101@gmail.com</td>
               <td>717-271-4458</td>
+              <td>
+                <button>Edit</button>
+                <button>Delete</button>
+              </td>
             </tr>
           </tbody>
         </table>
