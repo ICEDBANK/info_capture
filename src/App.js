@@ -63,7 +63,7 @@ const handleSubmit = () => {
         </table>
       </div>
       <div className="footer">
-        
+        <p><span>&copy; {new Date().getFullYear()} InfoCapture. All Rights Reserved</span></p>
       </div>
       </div>
     </>
