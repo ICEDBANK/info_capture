@@ -26,10 +26,11 @@ const handleSubmit = () => {
             <input type="text" name='state' placeholder='Enter Your State' required />
             <input type="text" name='email' placeholder='someone@somewhere.com' required />
             <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='example: 123-456-7890' required />
+            <button className='addBtn'>Add Record</button>
+            <button className='updateBtn'>Update Record</button>
           </form>
         </div>
-      </div>
-      <div className="table-container">
+        <div className="table-container">
         <h2>User Data</h2>
         <table>
           <thead>
@@ -60,6 +61,10 @@ const handleSubmit = () => {
             </tr>
           </tbody>
         </table>
+      </div>
+      <div className="footer">
+        
+      </div>
       </div>
     </>
   );
