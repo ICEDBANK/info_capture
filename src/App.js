@@ -18,7 +18,7 @@ const handleSubmit = () => {
           </div>
           <form onSubmit={handleSubmit}>
             <input type="text" name='firstname' placeholder='Enter Your First Name' />
-            <input type="text" name='firstname' placeholder='Enter Your First Name' />
+            <input type="text" name='lastname' placeholder='Enter Your Last Name' />
           </form>
         </div>
       </div>
