@@ -19,6 +19,9 @@ const handleSubmit = () => {
           <form onSubmit={handleSubmit}>
             <input type="text" name='firstname' placeholder='Enter Your First Name' />
             <input type="text" name='lastname' placeholder='Enter Your Last Name' />
+            <input type="number" name='age' placeholder='Enter Your Age' />
+            <input type="text" name='email' placeholder='someone@somewhere.com' />
+            
           </form>
         </div>
       </div>
