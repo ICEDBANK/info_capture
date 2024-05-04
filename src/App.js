@@ -54,7 +54,7 @@ const handleSubmit = () => {
               <td>j.e.rice4101@gmail.com</td>
               <td>717-271-4458</td>
               <td>
-              <FontAwesomeIcon icon={faPenToSquare} />
+              <FontAwesomeIcon icon={faPenToSquare} className='editbtn myBtn'/>
               <FontAwesomeIcon icon={faTrash} />
               </td>
             </tr>
