@@ -6,6 +6,7 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [isEditing, setIsEditing] = useState(false);
+  const [formData, setFormData] = useState = ('')
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -18,9 +19,12 @@ function App() {
 
     }else{
 
-      alert("Record Added");
+      fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
 
-    }
+        method: 'POST',
+        headers: ('Content-Type' : 'application/json')
+
+      })
 
   };
 
