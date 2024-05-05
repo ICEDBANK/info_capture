@@ -8,7 +8,7 @@ function App() {
   const [formData, setFormData] = useState({
     firstname: '',
     lastname: '',
-    age: 0,
+    age: '',
     city: '',
     state: '',
     email: '',
@@ -42,7 +42,7 @@ function App() {
         setFormData({
           firstname: '',
           lastname: '',
-          age: 0,
+          age: '',
           city: '',
           state: '',
           email: '',
@@ -93,6 +93,7 @@ function App() {
             type="text" 
             name='lastname' 
             value={formData.lastname}
+            onChange={handleInputChange}
             placeholder='Enter Your Last Name' 
             required />
           <input 
