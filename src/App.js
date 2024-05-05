@@ -68,9 +68,10 @@ function App() {
     // Handle delete operation
   };
 
-  const handleInputChange = () => {
+  const handleInputChange = (e) => {
 
-    //...
+    const {name, value} = e.target;
+    setFormData(prevFormData => ({...prevFormData, [name]: value}))
 
   }
 
@@ -131,7 +132,15 @@ function App() {
             placeholder='example: 123-456-7890' 
             required />
           {/* Conditionally render button based on editing mode */}
-          {isEditing ? (<button className='updateBtn'>Update Record</button>) : (<button className='addBtn'>Add Record</button>)}
+          {isEditing ? (
+            
+            <button className='updateBtn'type='submit'>Update Record</button>
+            
+            ) : (
+              
+            <button className='addBtn'type='submit'>Add Record</button>
+            
+            )}
         </form>
       </div>
       <div className="table-container">
