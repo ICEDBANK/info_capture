@@ -6,7 +6,15 @@ import { useEffect, useState } from 'react';
 function App() {
 
   const [isEditing, setIsEditing] = useState(false);
-  const [formData, setFormData] = useState = ('')
+  const [formData, setFormData] = useState = ({
+    firstname: '',
+    lastname: '',
+    age: 0,
+    city: '',
+    state: '',
+    email: '',
+    phone: ''
+  })
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,10 +27,14 @@ function App() {
 
     }else{
 
-      fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
+      fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json/users.json', {
 
-        method: 'POST',
-        headers: ('Content-Type' : 'application/json')
+      method: 'POST',
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
+
+      }
 
       })
 
