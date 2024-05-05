@@ -58,9 +58,7 @@ function App() {
 
 
   // Function to handle edit button click
-  const handleEdit = (id) => {
-    alert(`You are about to edit record with id: ${id}`);
-    // Set editing mode and populate form data for editing
+  const handleEdit = () => {
     setIsEditing(true);
   };
 
@@ -70,6 +68,12 @@ function App() {
     // Handle delete operation
   };
 
+  const handleInputChange = () => {
+
+    //...
+
+  }
+
   return (
     <div className="App">
       <div className="form-container">
@@ -77,13 +81,55 @@ function App() {
         <form onSubmit={handleSubmit}>
           {/* Input fields for form data */}
           {/* Add proper onChange handlers to update formData state */}
-          <input type="text" name='firstname' placeholder='Enter Your First Name' required />
-          <input type="text" name='lastname' placeholder='Enter Your Last Name' required />
-          <input type="number" name='age' placeholder='Enter Your Age' required />
-          <input type="text" name='city' placeholder='Enter Your city' required />
-          <input type="text" name='state' placeholder='Enter Your State' required />
-          <input type="email" name='email' placeholder='someone@somewhere.com' required />
-          <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" placeholder='example: 123-456-7890' required />
+          <input 
+            type="text" 
+            name='firstname' 
+            value={formData.firstname}
+            onChange={handleInputChange}
+            placeholder='Enter Your First Name' 
+            required />
+          <input 
+            type="text" 
+            name='lastname' 
+            value={formData.lastname}
+            placeholder='Enter Your Last Name' 
+            required />
+          <input 
+            type="number" 
+            name='age' 
+            value={formData.age}
+            onChange={handleInputChange}
+            placeholder='Enter Your Age' 
+            required />
+          <input 
+            type="text" 
+            name='city' 
+            value={formData.city}
+            onChange={handleInputChange}
+            placeholder='Enter Your city' 
+            required />
+          <input 
+            type="text" 
+            name='state' 
+            value={formData.state}
+            onChange={handleInputChange}
+            placeholder='Enter Your State' 
+            required />
+          <input 
+            type="email" 
+            name='email' 
+            value={formData.email}
+            onChange={handleInputChange}
+            placeholder='someone@somewhere.com' 
+            required />
+          <input 
+            type="tel" 
+            name="phone" 
+            value={formData.phone}
+            onChange={handleInputChange}
+            pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}" 
+            placeholder='example: 123-456-7890' 
+            required />
           {/* Conditionally render button based on editing mode */}
           {isEditing ? (<button className='updateBtn'>Update Record</button>) : (<button className='addBtn'>Add Record</button>)}
         </form>
