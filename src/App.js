@@ -17,6 +17,7 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
 
   // Function to handle form submission
+  // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log('Form Submitted');
@@ -25,10 +26,36 @@ function App() {
       alert("You are about to edit something");
       // Handle edit submission
     } else {
-      alert("Record Added");
-      // Handle add submission
+      // Send form data to the server
+      fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
+      .then(response => response.json())
+      .then(data => {
+        alert("Record Added Successfully");
+        console.log('Form data submitted:', data);
+        // Reset form data after successful submission
+        setFormData({
+          firstname: '',
+          lastname: '',
+          age: 0,
+          city: '',
+          state: '',
+          email: '',
+          phone: ''
+        });
+      })
+      .catch(error => {
+        console.error('Error submitting form:', error);
+        alert("Error submitting form. Please try again later.");
+      });
     }
   };
+
 
   // Function to handle edit button click
   const handleEdit = (id) => {
