@@ -263,7 +263,7 @@ function App() {
                 <td>{record.phone}</td>
                 {/* Edit and delete buttons */}
                 <td>
-                  <FontAwesomeIcon icon={faPenSquare} className='editBtn myBtn' onClick={() => handleEdit()} />
+                  <FontAwesomeIcon icon={faPenSquare} className='editBtn myBtn' onClick={() => handleEdit(record)} />
                   <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete(record.id)} />
                 </td>
             </tr>
