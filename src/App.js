@@ -245,7 +245,7 @@ function App() {
                 {/* Edit and delete buttons */}
                 <td>
                   <FontAwesomeIcon icon={faPenSquare} className='editBtn myBtn' onClick={() => handleEdit()} />
-                  <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete()} />
+                  <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete(record.id)} />
                 </td>
             </tr>
             ))}
