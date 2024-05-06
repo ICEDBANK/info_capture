@@ -213,12 +213,18 @@ function App() {
             {/* Example table row, replace with data from state or API */}
             {records.map(record => (
               <tr key={record.id}>
-              {/* Edit and delete buttons */}
-
-              <td>
-                <FontAwesomeIcon icon={faPenSquare} className='editBtn myBtn' onClick={() => handleEdit()} />
-                <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete()} />
-              </td>
+                <td>{record.firstname}</td>
+                <td>{record.lastname}</td>
+                <td>{record.age}</td>
+                <td>{record.city}</td>
+                <td>{record.state}</td>
+                <td>{record.email}</td>
+                <td>{record.phone}</td>
+                {/* Edit and delete buttons */}
+                <td>
+                  <FontAwesomeIcon icon={faPenSquare} className='editBtn myBtn' onClick={() => handleEdit()} />
+                  <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete()} />
+                </td>
             </tr>
             ))}
           </tbody>
