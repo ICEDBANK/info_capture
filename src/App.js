@@ -87,9 +87,16 @@ function App() {
           phone: ''
         });
         fetchData();
+        setNotification('Record Updated Successfully');
+        setTimeout(() => {
+          setNotification('');
+        }, 2000);
       }).catch(error => {
         console.error('Error updating record:', error);
-        alert("Error updating record. Please try again later.");
+        setNotification('Error updating record. Please try again later.');
+        setTimeout(() => {
+          setNotification('');
+        }, 2000);
       });
     } else {
       // Handle adding a new record
@@ -115,7 +122,7 @@ function App() {
   // Function to handle delete button click
   const handleDelete = (id) => {
     // Confirm deletion with user
-    alert(`You are about to delete record with id: ${id}`);
+    setNotification(`You are about to delete record with id: ${id}`);
     // Handle record deletion
     fetch(`https://api-db-a57ed-default-rtdb.firebaseio.com/users/${id}.json`,{
       method: 'DELETE'
@@ -221,7 +228,6 @@ function App() {
       {/* Table container */}
       <div className="table-container">
         <h2>User Data</h2>
-        <h4>{}</h4>
         <table>
           <thead>
             <tr>
