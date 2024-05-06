@@ -63,7 +63,7 @@ function App() {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (isEditing) {
-      alert("You are about to edit something");
+      // Update Record
       // Handle edit submission
     } else {
       // Check if the state is selected
