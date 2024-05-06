@@ -64,6 +64,28 @@ input:focus {
   background-color: #e4e2e2;
 }
 
+select {
+
+  box-sizing: border-box;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  border: none;
+  border-radius: 4px;
+ 
+  background-color: #7acae9; /* Sky Blue for button background */
+  color: #080f1d; /* Deep Blue for text */
+  font-family: 'Orbitron', sans-serif;
+  font-weight: bold;
+  cursor: pointer;
+
+}
+
+select:focus {
+  outline: none;
+  background-color: #e4e2e2;
+}
+
 ::placeholder {
   color: #5a5e5e;
   opacity: 1; /* Firefox */
