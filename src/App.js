@@ -113,6 +113,14 @@ function App() {
   const handleDelete = (id) => {
     alert(`You are about to delete record with id: ${id}`);
     // Handle delete operation
+    fetch(`https://api-db-a57ed-default-rtdb.firebaseio.com/users/${id}.json`,{
+
+      method: 'DELETE'
+
+    })
+
+    fetchData();
+
   };
 
   // Function to handle input changes
