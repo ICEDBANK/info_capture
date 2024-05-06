@@ -99,7 +99,41 @@ function App() {
         }, 2000);
       });
     } else {
-      // Handle adding a new record
+      // Add new record
+      fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
+        method: 'POST',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      }).then(response => {
+        if (!response.ok) {
+          throw new Error('Failed to add new record');
+        }
+        return response.json();
+      }).then(() => {
+        // Reset form and fetch updated records
+        setFormData({
+          firstname: '',
+          lastname: '',
+          age: '',
+          city: '',
+          state: '',
+          email: '',
+          phone: ''
+        });
+        fetchData();
+        setNotification('New Record Added Successfully');
+        setTimeout(() => {
+          setNotification('');
+        }, 2000);
+      }).catch(error => {
+        console.error('Error adding new record:', error);
+        setNotification('Error adding new record. Please try again later.');
+        setTimeout(() => {
+          setNotification('');
+        }, 2000);
+      });
     }
   };
 
