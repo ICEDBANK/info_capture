@@ -64,6 +64,13 @@ function App() {
     e.preventDefault();
     if (isEditing) {
       // Update Record
+      fetch(`https://api-db-a57ed-default-rtdb.firebaseio.com/users/${editingId}.json`, {
+        method: 'PUSH',
+        body: JSON.stringify(formData),
+        headers: {
+          'Content-Type': 'application/json',
+        }
+      })
       // Handle edit submission
     } else {
       // Check if the state is selected
