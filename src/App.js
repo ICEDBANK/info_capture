@@ -107,6 +107,15 @@ function App() {
 
   // Function to handle edit button click
   const handleEdit = (record) => {
+    setFormData({
+      firstname: record.firstname,
+      lastname: record.lastname,
+      age: record.age,
+      city: record.city,
+      state: record.state,
+      email: record.email,
+      phone: record.phone
+    });
     setIsEditing(true);
     setEditingId(record.id);
   };
