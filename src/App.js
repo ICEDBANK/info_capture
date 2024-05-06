@@ -21,6 +21,7 @@ function App() {
   const [states, setStates] = useState([]); // State variable to store list of states
   const [records, setRecords] = useState ([]); // State variable to store user records
   const [editingId, setEditingId] = useState (null); // State variable to store the ID of the record being edited
+  const [notification, setNotification] = useState('');
 
   // Function to fetch list of states from an API or data file
   const fetchStates = () => {
