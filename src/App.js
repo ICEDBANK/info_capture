@@ -70,7 +70,7 @@ function App() {
     // Handle delete operation
   };
 
-    // Function to handle input changes
+  // Function to handle input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
 
@@ -80,7 +80,14 @@ function App() {
       const phoneNumber = value.replace(/\D/g, '');
 
       // Format the phone number with dashes
-      const formattedPhoneNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+      let formattedPhoneNumber = '';
+      for (let i = 0; i < phoneNumber.length; i++) {
+        // Insert dash after every 3rd character except for the last group
+        if (i > 0 && i % 3 === 0 && i < 9) {
+          formattedPhoneNumber += '-';
+        }
+        formattedPhoneNumber += phoneNumber[i];
+      }
 
       // Update the formData state with the formatted phone number
       setFormData({ ...formData, [name]: formattedPhoneNumber });
