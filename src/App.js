@@ -57,9 +57,7 @@ function App() {
 
       })
 
-  }
- 
-  fetchData();
+  } 
 
   // Function to handle form submission
   const handleSubmit = (e) => {
