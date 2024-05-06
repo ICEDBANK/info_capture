@@ -70,8 +70,12 @@ function App() {
         headers: {
           'Content-Type': 'application/json',
         }
+      }).then(() => {
+
+        fetchData();
+        setEditingId(null);
       })
-      // Handle edit submission
+
     } else {
       // Check if the state is selected
       if (formData.state === "") {
