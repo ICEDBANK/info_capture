@@ -29,6 +29,7 @@ function App() {
 
   useEffect(() => {
     // Fetch list of states when component mounts
+    fetchData();
     fetchStates();
   }, []);
 
