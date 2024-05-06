@@ -5,16 +5,8 @@ import { useEffect, useState } from 'react';
 
 function App() {
 
-  const states = [
-    'Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware',
-    'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky',
-    'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi',
-    'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico',
-    'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania',
-    'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont',
-    'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'
-  ];
   
+
   // State for form data and editing mode
   const [formData, setFormData] = useState({
     firstname: '',
@@ -26,8 +18,19 @@ function App() {
     phone: ''
   });
   const [isEditing, setIsEditing] = useState(false);
-
+  const [states, setStates] = useState([]); // State variable to store list of states
   const [records, setRecords] = useState ([]);
+
+  const fetchStates = () => {
+    // Fetch list of states from an API or import from a data file
+    const fetchedStates = ['Alabama', 'Alaska', 'Arizona', 'Arkansas', 'California', 'Colorado', 'Connecticut', 'Delaware', 'Florida', 'Georgia', 'Hawaii', 'Idaho', 'Illinois', 'Indiana', 'Iowa', 'Kansas', 'Kentucky', 'Louisiana', 'Maine', 'Maryland', 'Massachusetts', 'Michigan', 'Minnesota', 'Mississippi', 'Missouri', 'Montana', 'Nebraska', 'Nevada', 'New Hampshire', 'New Jersey', 'New Mexico', 'New York', 'North Carolina', 'North Dakota', 'Ohio', 'Oklahoma', 'Oregon', 'Pennsylvania', 'Rhode Island', 'South Carolina', 'South Dakota', 'Tennessee', 'Texas', 'Utah', 'Vermont', 'Virginia', 'Washington', 'West Virginia', 'Wisconsin', 'Wyoming'];
+    setStates(fetchedStates);
+  };
+
+  useEffect(() => {
+    // Fetch list of states when component mounts
+    fetchStates();
+  }, []);
 
   const fetchData = () => {
 
@@ -172,13 +175,18 @@ function App() {
             onChange={handleInputChange}
             placeholder='Enter Your city' 
             required />
-          <input 
-            type="text" 
-            name='state' 
+          <select
+            name="state"
             value={formData.state}
             onChange={handleInputChange}
-            placeholder='Enter Your State' 
-            required />
+            required
+          >
+            <option value="">-- Select Your State --</option>
+            {/* Dynamically generate options for states */}
+            {states.map(state => (
+              <option key={state} value={state}>{state}</option>
+            ))}
+          </select>
           <input 
             type="email" 
             name='email' 
