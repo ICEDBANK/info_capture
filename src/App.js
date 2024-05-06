@@ -62,12 +62,15 @@ function App() {
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log('Form Submitted');
-
     if (isEditing) {
       alert("You are about to edit something");
       // Handle edit submission
     } else {
+      // Check if the state is selected
+      if (formData.state === "") {
+        alert("Please select a state");
+        return;
+      }
       // Send form data to the server
       fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
         method: 'POST',
@@ -80,24 +83,22 @@ function App() {
       .then(data => {
         alert("Record Added Successfully");
         console.log('Form data submitted:', data);
-        // Reset form data after successful submission
         setFormData({
           firstname: '',
           lastname: '',
           age: '',
           city: '',
-          state: '',
+          state: '', // Reset state field
           email: '',
           phone: ''
         });
+        // Fetch updated data
+        fetchData();
       })
       .catch(error => {
         console.error('Error submitting form:', error);
         alert("Error submitting form. Please try again later.");
       });
-
-      //fetchData();
-
     }
   };
 
