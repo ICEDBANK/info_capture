@@ -16,7 +16,7 @@ function App() {
   });
   const [isEditing, setIsEditing] = useState(false);
 
-  
+
 
   // Function to handle form submission
   // Function to handle form submission
@@ -70,12 +70,25 @@ function App() {
     // Handle delete operation
   };
 
+    // Function to handle input changes
   const handleInputChange = (e) => {
+    const { name, value } = e.target;
 
-    const {name, value} = e.target;
-    setFormData(prevFormData => ({...prevFormData, [name]: value}))
+    // Check if the input is for the phone number
+    if (name === 'phone') {
+      // Remove non-numeric characters from the input value
+      const phoneNumber = value.replace(/\D/g, '');
 
-  }
+      // Format the phone number with dashes
+      const formattedPhoneNumber = phoneNumber.replace(/(\d{3})(\d{3})(\d{4})/, '$1-$2-$3');
+
+      // Update the formData state with the formatted phone number
+      setFormData({ ...formData, [name]: formattedPhoneNumber });
+    } else {
+      // For other input fields, directly update the formData state
+      setFormData({ ...formData, [name]: value });
+    }
+  };
 
   return (
     <div className="App">
