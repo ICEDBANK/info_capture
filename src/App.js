@@ -20,6 +20,7 @@ function App() {
   const [isEditing, setIsEditing] = useState(false);
   const [states, setStates] = useState([]); // State variable to store list of states
   const [records, setRecords] = useState ([]);
+  const [editingId, setEditingId] = useState (null);
 
   const fetchStates = () => {
     // Fetch list of states from an API or import from a data file
@@ -105,8 +106,9 @@ function App() {
 
 
   // Function to handle edit button click
-  const handleEdit = () => {
+  const handleEdit = (record) => {
     setIsEditing(true);
+    setEditingId(record.id);
   };
 
   // Function to handle delete button click
