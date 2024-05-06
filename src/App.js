@@ -228,7 +228,7 @@ function App() {
       {/* Table container */}
       <div className="table-container">
         <h2>User Data</h2>
-        <h3 onChange={notification}></h3>
+        <h3>{notification}</h3>
         <table>
           <thead>
             <tr>
