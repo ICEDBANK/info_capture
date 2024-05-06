@@ -80,6 +80,9 @@ function App() {
         console.error('Error submitting form:', error);
         alert("Error submitting form. Please try again later.");
       });
+
+      fetchData();
+
     }
   };
 
@@ -208,20 +211,16 @@ function App() {
           </thead>
           <tbody>
             {/* Example table row, replace with data from state or API */}
-            <tr>
-              <td>Joshua</td>
-              <td>Rice</td>
-              <td>36</td>
-              <td>Birdsboro</td>
-              <td>Pennsylvania</td>
-              <td>j.e.rice4101@gmail.com</td>
-              <td>717-271-4458</td>
+            {records.map(record => (
+              <tr key={record.id}>
               {/* Edit and delete buttons */}
+
               <td>
                 <FontAwesomeIcon icon={faPenSquare} className='editBtn myBtn' onClick={() => handleEdit()} />
                 <FontAwesomeIcon icon={faTrash} className='delBtn myBtn' onClick={() => handleDelete()} />
               </td>
             </tr>
+            ))}
           </tbody>
         </table>
       </div>
