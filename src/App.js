@@ -37,6 +37,8 @@ function App() {
 
           }
 
+          setRecords(loadedRecords);
+
       })
 
   }
