@@ -30,6 +30,12 @@ body {
 
 }
 
+.notification {
+
+  color: red;
+
+}
+
 button {
   box-sizing: border-box;
   width: 100%;

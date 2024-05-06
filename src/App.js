@@ -90,13 +90,13 @@ function App() {
         setNotification('Record Updated Successfully');
         setTimeout(() => {
           setNotification('');
-        }, 2000);
+        }, 5000);
       }).catch(error => {
         console.error('Error updating record:', error);
         setNotification('Error updating record. Please try again later.');
         setTimeout(() => {
           setNotification('');
-        }, 2000);
+        }, 5000);
       });
     } else {
       // Add new record
@@ -126,13 +126,13 @@ function App() {
         setNotification('New Record Added Successfully');
         setTimeout(() => {
           setNotification('');
-        }, 2000);
+        }, 5000);
       }).catch(error => {
         console.error('Error adding new record:', error);
         setNotification('Error adding new record. Please try again later.');
         setTimeout(() => {
           setNotification('');
-        }, 2000);
+        }, 5000);
       });
     }
   };
@@ -262,7 +262,7 @@ function App() {
       {/* Table container */}
       <div className="table-container">
         <h2>User Data</h2>
-        <h3>{notification}</h3>
+        <h3 className='notification'>{notification}</h3>
         <table>
           <thead>
             <tr>
