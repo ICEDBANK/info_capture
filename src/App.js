@@ -162,7 +162,8 @@ function App() {
       method: 'DELETE'
     })
     // Fetch updated records after deletion
-    fetchData();
+    setRecords(records.filter(record => record.id !== id));
+    setNotification('You have deleted the record');
   };
 
   // Function to handle input changes
