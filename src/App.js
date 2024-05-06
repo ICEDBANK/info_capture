@@ -61,67 +61,41 @@ function App() {
 
   // Function to handle form submission
   const handleSubmit = (e) => {
-    e.preventDefault();
-    if (isEditing) {
-      // Update Record
-      fetch(`https://api-db-a57ed-default-rtdb.firebaseio.com/users/${editingId}.json`, {
-        method: 'PUSH',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      }).then(() => {
-
-        setIsEditing(false);
-        setEditingId(null);
-        setFormData({
-          firstname: '',
-          lastname: '',
-          age: '',
-          city: '',
-          state: '',
-          email: '',
-          phone: ''
-        });
-        fetchData();
-      })
-
-    } else {
-      // Check if the state is selected
-      if (formData.state === "") {
-        alert("Please select a state");
-        return;
+  e.preventDefault();
+  if (isEditing) {
+    // Update Record
+    fetch(`https://api-db-a57ed-default-rtdb.firebaseio.com/users/${editingId}.json`, {
+      method: 'PUT', // or 'PATCH' depending on your API's requirements
+      body: JSON.stringify(formData),
+      headers: {
+        'Content-Type': 'application/json',
       }
-      // Send form data to the server
-      fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: {
-          'Content-Type': 'application/json',
-        }
-      })
-      .then(response => response.json())
-      .then(data => {
-        alert("Record Added Successfully");
-        console.log('Form data submitted:', data);
-        setFormData({
-          firstname: '',
-          lastname: '',
-          age: '',
-          city: '',
-          state: '', // Reset state field
-          email: '',
-          phone: ''
-        });
-        // Fetch updated data
-        fetchData();
-      })
-      .catch(error => {
-        console.error('Error submitting form:', error);
-        alert("Error submitting form. Please try again later.");
+    }).then(response => {
+      if (!response.ok) {
+        throw new Error('Failed to update record');
+      }
+      return response.json();
+    }).then(() => {
+      setIsEditing(false);
+      setEditingId(null);
+      setFormData({
+        firstname: '',
+        lastname: '',
+        age: '',
+        city: '',
+        state: '',
+        email: '',
+        phone: ''
       });
-    }
-  };
+      fetchData();
+    }).catch(error => {
+      console.error('Error updating record:', error);
+      alert("Error updating record. Please try again later.");
+    });
+  } else {
+    // Rest of your existing code for adding a new record
+  }
+};
 
 
   // Function to handle edit button click
