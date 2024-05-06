@@ -42,7 +42,8 @@ function App() {
       })
 
   }
-
+ 
+  fetchData();
 
   // Function to handle form submission
   const handleSubmit = (e) => {
@@ -81,7 +82,7 @@ function App() {
         alert("Error submitting form. Please try again later.");
       });
 
-      fetchData();
+      //fetchData();
 
     }
   };
