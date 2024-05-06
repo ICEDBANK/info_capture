@@ -16,9 +16,32 @@ function App() {
   });
   const [isEditing, setIsEditing] = useState(false);
 
+  const [records, setRecords] = useState ([]);
+
+  const fetchData = () => {
+
+    fetch('https://api-db-a57ed-default-rtdb.firebaseio.com/users.json', {
+        
+      }).then(response => response.json()).then(data => {
+
+          const loadedRecords = [];
+
+          for(const key in data){
+
+            loadedRecords.push({
+
+              id:key,
+              ...data[key]
+
+            })
+
+          }
+
+      })
+
+  }
 
 
-  // Function to handle form submission
   // Function to handle form submission
   const handleSubmit = (e) => {
     e.preventDefault();
