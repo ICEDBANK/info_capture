@@ -72,8 +72,18 @@ function App() {
         }
       }).then(() => {
 
-        fetchData();
+        setIsEditing(false);
         setEditingId(null);
+        setFormData({
+          firstname: '',
+          lastname: '',
+          age: '',
+          city: '',
+          state: '',
+          email: '',
+          phone: ''
+        });
+        fetchData();
       })
 
     } else {
